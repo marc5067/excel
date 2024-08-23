@@ -14,6 +14,19 @@ Sub PullAllVBAFromGitHubAndImport()
     repoUrl = "https://api.github.com/repos/marc5067/excel/contents/" ' Adjust to your repo
     localPath = "C:\Users\marce\OneDrive\eva_excel\v2\repo\"  ' Local path to temporarily save the downloaded files
     
+        ' Ensure the export path exists
+    If Dir(repoPath, vbDirectory) = "" Then
+        MsgBox "Repository path does not exist. Please check the path and try again."
+        Exit Sub
+    End If
+    
+        ' Delete all files in the repository folder
+    fileName = Dir(repoPath & "*.*")
+    Do While fileName <> ""
+        Kill repoPath & fileName
+        fileName = Dir
+    Loop
+    
     ' Create an instance of the MSXML2.XMLHTTP object
     Set http = CreateObject("MSXML2.XMLHTTP")
     
