@@ -4,11 +4,12 @@ Sub PullAllVBAFromGitHubAndImport()
     Dim localPath As String
     Dim filesList As Object
     Dim http As Object
+    Dim file As Object
     Dim fileName As String
     Dim fileUrl As String
     Dim filePath As String
     Dim fileNum As Integer
-    
+
     ' Define the GitHub repository URL and local path
     repoUrl = "https://api.github.com/repos/marc5067/excel/contents/" ' Adjust to your repo
     localPath = "C:\Users\marce\OneDrive\eva_excel\v2\repo\"  ' Local path to temporarily save the downloaded files
