@@ -15,15 +15,15 @@ Sub PullAllVBAFromGitHubAndImport()
     localPath = "C:\Users\marce\OneDrive\eva_excel\v2\repo\"  ' Local path to temporarily save the downloaded files
     
         ' Ensure the export path exists
-    If Dir(repoPath, vbDirectory) = "" Then
+    If Dir(localPath, vbDirectory) = "" Then
         MsgBox "Repository path does not exist. Please check the path and try again."
         Exit Sub
     End If
     
         ' Delete all files in the repository folder
-    fileName = Dir(repoPath & "*.*")
+    fileName = Dir(localPath & "*.*")
     Do While fileName <> ""
-        Kill repoPath & fileName
+        Kill localPath & fileName
         fileName = Dir
     Loop
     
