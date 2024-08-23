@@ -31,17 +31,19 @@ Sub ExportVBAAndPushToGitHub()
     Next vbComp
     
     ' Git add command to stage all changes
-    gitCommand = "cmd.exe /k cd """ & repoPath & """ && git add ."
+    gitCommand = "cmd.exe /c cd """ & repoPath & """ && git add ."
+    'gitCommand = "cmd.exe /k cd """ & repoPath & """ && git add ."   to je da cmd ostane odprt
     shellResult = Shell(gitCommand, vbNormalFocus)
     
     ' Git commit command to commit changes
-    gitCommand = "cmd.exe /k cd """ & repoPath & """ && git commit -m ""Updated VBA code from Excel"""
+    gitCommand = "cmd.exe /c cd """ & repoPath & """ && git commit -m ""Updated VBA code from Excel"""
+    'gitCommand = "cmd.exe /k cd """ & repoPath & """ && git commit -m ""Updated VBA code from Excel"""
     shellResult = Shell(gitCommand, vbNormalFocus)
     
     ' Git push command to push changes to the remote repository
-    gitCommand = "cmd.exe /k cd """ & repoPath & """ && git push origin main" ' Replace "main" with your branch name if different
+    gitCommand = "cmd.exe /c cd """ & repoPath & """ && git push origin main"
+    'gitCommand = "cmd.exe /k cd """ & repoPath & """ && git push origin main" ' Replace "main" with your branch name if different
     shellResult = Shell(gitCommand, vbNormalFocus)
     
     MsgBox "VBA code exported and pushed to GitHub successfully!"
 End Sub
-
