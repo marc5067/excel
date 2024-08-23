@@ -17,7 +17,7 @@ Sub ImportVBAFromGitHub()
     repoOwner = "marc5067"  ' Replace with your GitHub repository owner
     repoName = "excel"    ' Replace with your GitHub repository name
     branchName = "work"            ' Replace with the branch name (e.g., "main" or "master")
-    token = "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"    ' Replace with your GitHub personal access token
+    token = ""    ' Replace with your GitHub personal access token
 
     ' Set up the URL to get the list of files in the repository
     url = "https://api.github.com/repos/" & repoOwner & "/" & repoName & "/contents?ref=" & branchName
