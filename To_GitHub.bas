@@ -14,6 +14,13 @@ Sub ExportVBAAndPushToGitHub()
         Exit Sub
     End If
     
+    ' Delete all files in the repository folder
+    fileName = Dir(repoPath & "*.*")
+    Do While fileName <> ""
+        Kill repoPath & fileName
+        fileName = Dir
+    Loop
+    
     ' Export each VBA component that is not a sheet or workbook module
     For Each vbComp In ThisWorkbook.VBProject.VBComponents
         Select Case vbComp.Type
